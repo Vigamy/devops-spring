@@ -1,0 +1,9 @@
+PATCH http://localhost:8080/api/produtos/atualizarParcial/29
+Content-Type: application/json
+
+{
+  "nome": "Panqueca De Toucinho",
+  "descricao": "Panquecas de toucinho, põe o bacon",
+  "preco": 400,
+  "disponivel": 100
+}
