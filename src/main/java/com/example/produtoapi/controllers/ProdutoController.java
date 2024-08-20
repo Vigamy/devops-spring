@@ -63,8 +63,12 @@ public class ProdutoController {
 //        return ResponseEntity.ok("Produto inserido com sucesso");
 
         produtoService.salvarProduto(produto);
+
         if(produto.getNome() == null){
             return ResponseEntity.status(400).body("Insira um nome de produto válido..");
+        }
+        if(produto.getDescricao() == null){
+            return ResponseEntity.status(400).body("Insira uma descricao de produto válida..");
         }
         if(produto.getPreco() <= 0){
             return ResponseEntity.status(400).body("Insira um preço válido.");
