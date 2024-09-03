@@ -11,6 +11,6 @@ RUN mvn clean package -DskipTests
 
 FROM openjdk:17-jdk-slim
 WORKDIR app
-COPY --from=build /target/produtoAPI-0.0.1-SNAPSHOT.jar produtoapi.jar
+COPY --from=build /app/target/produtoAPI-0.0.1-SNAPSHOT.jar produtoapi.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "produtoapi.jar"]
