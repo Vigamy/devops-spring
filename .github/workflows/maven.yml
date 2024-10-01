@@ -39,4 +39,14 @@ jobs:
         service-id: ${{secrets.SERVICE_ID}}
         # A Render API key
         api-key: ${{secrets.API_KEY}}
-          
+
+
+      
+    - name: Deploy EC2
+      run: |
+          echo "${{secrets.KEY_EC2_JAVA}}" > private_key && chmod 400 private_key
+          ssh -o StrictHostKeyChecking=no -i "private_key" ec2-52-207-155-213.compute-1.amazonaws"
+                cd /home/ubuntu/devops-spring &&
+                git pull &&
+                mvn clean package -DskiptTests &&
+                ./executar.sh "
